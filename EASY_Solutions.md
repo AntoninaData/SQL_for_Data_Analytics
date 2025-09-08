@@ -21,7 +21,7 @@ FROM
             ON emp.department_id = dep.id
         WHERE dep.department = 'Engineering'
     ) e;
-
+```
 
 ## Problem Microsoft 002 — Find current salary per employee
 **Goal:** We have a table with employees and their salaries, however, some of the records are old and contain outdated salary information. Find the current salary of each employee assuming that salaries increase each year. Output their id, first name, last name, department ID, and current salary. Order your list by employee ID in ascending order.
@@ -45,6 +45,7 @@ FROM (
 ) t
 WHERE rn = 1
 ORDER BY id;
+```
 
 
 ## Problem Amazon 003 — Find job titles of the highest-paid employees
@@ -61,6 +62,7 @@ WHERE a.salary = (
     JOIN title t ON w.worker_id = t.worker_ref_id
 )
 ORDER BY best_paid_title;
+```
 
 
 ## Problem DoorDash 004 — Find the last time each bike was in use
@@ -81,6 +83,7 @@ FROM (
 ) AS t
 WHERE rn=1
 ORDER BY t.end_time DESC;
+```
 
 
 ## Problem Glassdoor 005 — Compare employee salary with department average
@@ -94,6 +97,7 @@ SELECT e.first_name,
        AVG(e.salary) OVER (PARTITION BY e.department) AS average_salary
 FROM employee e
 ORDER BY e.department;
+```
 
 
 ## Problem Apple 006 — Find details of each customer with or without orders
@@ -108,6 +112,8 @@ SELECT c.first_name,
 FROM customers c
 LEFT JOIN orders o ON c.id=o.cust_id
 ORDER BY c.first_name ASC, o.order_details ASC;
+```
+
 
 ## Problem Amazon 007 — Find number of workers joined on or after April 1, 2014
 **Goal:** Find the number of workers by department who joined on or after April 1, 2014. Output the department name along with the corresponding number of workers. Sort the results based on the number of workers in descending order.
@@ -120,6 +126,7 @@ FROM worker
 WHERE joining_date>='2014-04-01'
 GROUP BY department
 ORDER BY Number_of_Workers DESC;
+```
 
 
 ## Problem Apple 008 — Number of unique users per client by month
@@ -133,6 +140,7 @@ SELECT client_id,
 FROM fact_events
 GROUP BY client_id, Month_number
 ORDER BY client_id;
+```
 
 
 ## Problem Airbnb 009 — Average number of bathrooms and bedrooms
@@ -146,6 +154,7 @@ SELECT a.city,
        AVG(a.bedrooms) AS bedrooms_average
 FROM airbnb_search_details a
 GROUP BY a.property_type, a.city;
+```
 
 
 ## Problem Spotify 010 — Find songs ranked in the top position
@@ -159,6 +168,7 @@ FROM spotify_worldwide_daily_song_ranking
 WHERE position=1
 GROUP BY trackname
 ORDER BY Times_Top DESC;
+```
 
 
 ## Problem Spotify 011 — Find how many times each artist appeared
@@ -171,6 +181,7 @@ SELECT artist,
 FROM spotify_worldwide_daily_song_ranking
 GROUP BY artist
 ORDER BY Times_Appeared DESC;
+```
 
 
 ## Problem Lyft 012 — Lyft drivers with extreme salaries
@@ -181,6 +192,7 @@ ORDER BY Times_Appeared DESC;
 SELECT *
 FROM lyft_drivers
 WHERE yearly_salary<=30000 OR yearly_salary>=70000;
+```
 
 
 ## Problem Meta 013 — Average Hack popularity by location
@@ -193,7 +205,7 @@ SELECT e.location,
 FROM facebook_employees e
 JOIN facebook_hack_survey s ON e.id=s.employee_id
 GROUP BY e.location;
-
+```
 
 ## Problem Shopify 014 — Orders made by Jill and Eva
 **Goal:** Find order details made by Jill and Eva. Consider the Jill and Eva as first names of customers. Output the order date, details and cost along with the first name. Order records based on the customer id in ascending order.
@@ -208,3 +220,5 @@ FROM customers c
 JOIN orders o ON c.id=o.cust_id
 WHERE c.first_name IN ('Jill','Eva')
 ORDER BY c.id;
+```
+
