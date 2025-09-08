@@ -6,7 +6,7 @@ My SQL practice repository with solutions to StrataScratch problems, organized b
 ## EASY
 | #   | Task                                   | Solution |
 |-----|----------------------------------------|----------|
-| 001 | Salary Difference Between Departments | [View](EASY/easy_solutions.md#problem-001--calculates-the-difference-between-the-highest-salaries) |
+| 001 | Salary Difference Between Departments | [View](EASY/easy_solutions.md## Problem 001 — Calculates the difference between the highest salaries) |
 
 ---
 
