@@ -5,8 +5,6 @@ My SQL practice repository with solutions to StrataScratch problems, organized b
 
 ## 🟢 EASY 🟢
 
-## EASY Problems
-
 | #   | Title                                         | Solution |
 |-----|-----------------------------------------------|----------|
 | 001 | Calculates the difference between salaries    | [View](EASY_Solutions.md#problem-linkedin-001--calculates-the-difference-between-the-highest-salaries) |
