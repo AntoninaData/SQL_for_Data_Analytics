@@ -222,3 +222,13 @@ WHERE c.first_name IN ('Jill','Eva')
 ORDER BY c.id;
 ```
 
+## Problem Amazon 015 — Number of shipments per month
+**Goal:** Write a query that will calculate the number of shipments per month. The unique key for one shipment is a combination of `shipment_id` and `sub_id`. Output the `year_month` in format `YYYY-MM` and the number of shipments in that month.
+
+```sql
+-- Dialect: MySQL
+SELECT CONCAT((shipment_date), '-', MONTH(shipment_date)) AS year_month
+FROM amazon_shipment;
+
+
+
