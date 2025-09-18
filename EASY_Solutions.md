@@ -232,7 +232,75 @@ FROM amazon_shipment;
 ```
 
 
+## Problem Apple 016 — Count the number of user events performed by MacBookPro users
+**Goal:** Count the number of user events performed by MacBookPro users. Output the result along with the event name. Sort the result based on the event count in the descending order.
 
+```sql
+-- Dialect: MySQL
+SELECT p.event_name,
+       COUNT(p.user_id) AS event_count
+FROM playbook_events p
+WHERE p.device = 'macbook pro'
+GROUP BY p.event_name
+ORDER BY event_count DESC;
+```
+
+
+## Problem Forbes 017 — Find the most profitable company from the financial sector
+**Goal:** Find the most profitable company from the financial sector. Output the result along with the continent.
+
+```sql
+-- Dialect: MySQL
+SELECT 
+    n.continent,
+    n.company
+FROM (
+    SELECT * 
+    FROM forbes_global_2010_2014 
+    ORDER BY profits DESC
+) n
+LIMIT 1;
+```
+
+
+## Problem City of Los Angeles 018 — Inspection date and risk category for STREET CHURROS
+**Goal:** Find the inspection date and risk category (`pe_description`) of facilities named 'STREET CHURROS' that received a score below 95.
+
+```sql
+-- Dialect: MySQL
+SELECT activity_date,
+       pe_description
+FROM los_angeles_restaurant_health_inspections
+WHERE facility_name = 'STREET CHURROS' 
+  AND score < 95;
+```
+
+
+## Problem City of San Francisco 019 — Number of violations at Roxanne Cafe per year
+**Goal:** Count the total number of violations that occurred at **'Roxanne Cafe'** for each year, based on the inspection date. Output the year and the corresponding number of violations in ascending order of the year.
+
+```sql
+-- Dialect: MySQL
+SELECT YEAR(inspection_date) AS year,
+       COUNT(violation_id) AS number_of_violations
+FROM sf_restaurant_health_violations
+WHERE violation_id IS NOT NULL 
+  AND business_name = 'Roxanne Cafe'
+GROUP BY YEAR(inspection_date)
+ORDER BY year;
+```
+
+
+## Problem Microsoft 020 — Number of Admin employees who joined in April or later
+**Goal:** Find the number of employees working in the Admin department that joined in April or later, in any year.
+
+```sql
+-- Dialect: MySQL
+SELECT COUNT(worker_id) AS num_admin_employees
+FROM worker
+WHERE department = 'Admin' 
+  AND MONTH(joining_date) >= 4;
+```
 
 
 
