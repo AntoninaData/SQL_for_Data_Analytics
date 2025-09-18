@@ -229,6 +229,10 @@ ORDER BY c.id;
 -- Dialect: MySQL
 SELECT CONCAT((shipment_date), '-', MONTH(shipment_date)) AS year_month
 FROM amazon_shipment;
+```
+
+
+
 
 
 
